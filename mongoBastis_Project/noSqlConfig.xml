@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- MongoBatis Developer Email : atoz333@naver.com -->
+
+<MongoBatis>
+
+	<!-- server Config -->
+	<server>		
+		<db id="db1" >
+			<dbName>test</dbName>
+			<dbIp>127.0.0.1</dbIp>
+			<dbPort>27017</dbPort>
+		</db>
+		<!-- If mongod's encryption is enabled, write down your user_id and user_pwd -->
+		<db id="db2" user_id="admin" user_pwd="2499">
+			<dbName>test</dbName>
+			<dbIp>127.0.0.1</dbIp>
+			<dbPort>27017</dbPort>			
+		</db>
+	</server>
+	
+	<!-- query Config  -->
+	
+	<querylist>
+		<!-- Should not be a duplicate query id -->
+		<!-- insert Query -->
+		<insert>
+			<query id="insert1" name="Query explain1">
+				db.class.insert({"class":"A","age":13,"name":"kim"})
+			</query>
+			<query id="insert2" name="Query explain2">
+				db.class.insert({#col#:"A","age":#age#,"name":"kim"})
+			</query>
+			<query id="insert3" name="Query explain3">
+				db.$collection$.insert(#dbo#)
+			</query>
+		</insert>
+		
+		<!-- count Query -->
+		<findCount>
+			<query id="count1">
+				db.class.count()
+			</query>	
+		</findCount>
+		
+		<!-- find Query -->
+		<find>
+			<query id="find1" name="">
+				db.class.find()
+			</query>
+		</find>
+		
+		<!-- aggregate Query -->
+		<aggregate>		
+			<query id="aggregate1" name="">
+				db.class.aggregate(
+							{'$match':{'name':{'$ne':'null'}}},
+							{'$group':{'_id':'$age','cnt':{'$sum':1}}},
+							{'$sort':{'age':-1}},						
+							{"$group":{"_id":"null","cnt":{"$sum":1}}})	
+			</query>
+		</aggregate>
+		
+		<!-- update Query -->
+		<update>
+			<query id="update1">
+				db.class.update({"name":"park0"},{"$set":{"age":100}})
+			</query>
+		</update>
+		
+		<!-- remove Query -->
+		<remove>
+			<query id="remove1">
+				db.class.remove(#condition1#)
+			</query>
+			
+			<query id="remove2">
+				db.class.remove(#condition2#)
+			</query>
+		</remove>
+	</querylist>
+	
+</MongoBatis>
