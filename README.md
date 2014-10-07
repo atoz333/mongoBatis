@@ -4,7 +4,7 @@ mongoBatis Configuration
  
 2. write property value.(noSqlConfig.xml)
 
-property name="mongoBatis"  value="C:/Work/workspace/mongoBastis_Project/noSqlConfig.xml" 
-
-
 3. RUN
+
+
+
