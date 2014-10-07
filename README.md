@@ -6,4 +6,5 @@ mongoBatis Configuration
 
 property name="mongoBatis"  value="C:/Work/workspace/mongoBastis_Project/noSqlConfig.xml" 
 
-3. Run.
+
+3. RUN
