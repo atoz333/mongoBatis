@@ -32,7 +32,7 @@
 				db.class.insert({#col#:"A","age":#age#,"name":"kim"})
 			</query>
 			<query id="insert3" name="Query explain3">
-				db.$collection$.insert(#dbo#)
+				db.%collection%.insert(#dbo#)
 			</query>
 		</insert>
 		
